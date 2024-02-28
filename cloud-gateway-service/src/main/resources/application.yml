@@ -4,11 +4,9 @@ server:
 spring:
   cloud:
     gateway:
-      mvc:
-
       routes:
         - id: employeeModule
-          url: http://localhost:8081/
+          uri: http://localhost:8081/
           predicates:
             - Path=/employee/**
         - id: consumerModule

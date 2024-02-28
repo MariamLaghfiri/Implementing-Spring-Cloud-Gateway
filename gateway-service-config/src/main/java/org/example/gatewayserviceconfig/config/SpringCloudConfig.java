@@ -1,8 +1,10 @@
 package org.example.gatewayserviceconfig.config;
 
+import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.cloud.gateway.server.mvc.filter.
+
 @Configuration
 public class SpringCloudConfig {
 
@@ -11,11 +13,14 @@ public class SpringCloudConfig {
         return builder.routes()
                 .route(r -> r.path("/employee/**")
                         .uri("http://localhost:8081/")
-                        .id("employeeModule"))
+//                        .id("employeeModule")
+                )
 
                 .route(r -> r.path("/consumer/**")
                         .uri("http://localhost:8082/")
-                        .id("consumerModule"))
+//                        .id("consumerModule")
+                )
                 .build();
     }
+
 }
